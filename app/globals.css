@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .gradient-accent {
+    background: linear-gradient(90deg, #10B981 0%, #34D399 100%);
+  }
+
+  .hero-mesh {
+    background:
+      radial-gradient(circle at top right, rgba(16, 185, 129, 0.08), transparent 40%),
+      radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.05), transparent 40%);
+  }
+
+  .ui-card-blur {
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  .dark .ui-card-blur {
+    background: rgba(30, 41, 59, 0.7);
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+}
