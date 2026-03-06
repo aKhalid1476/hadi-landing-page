@@ -27,8 +27,7 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
-            Hadi grounds ML/AI pipelines with RAG and hours of training data to ensure students
-            of knowledge continue to learn authentic knowledge from verified sources.
+            Hadi is designed to guide students in their pursuit of authentic Islamic knowledge, providing reliable resources and tools that support learning with confidence and accuracy
           </p>
 
           <div className="flex flex-col sm:flex-row items-start gap-4 pt-4">
