@@ -35,26 +35,7 @@ export default function HeroSection() {
             <WaitlistButton />
           </div>
 
-          <div className="flex items-center gap-8 pt-8">
-            <div className="flex -space-x-3">
-              {AVATAR_URLS.map((src, i) => (
-                <Image
-                  key={i}
-                  src={src}
-                  alt="User"
-                  width={40}
-                  height={40}
-                  className="w-10 h-10 rounded-full border-2 border-white dark:border-slate-800 bg-slate-100 object-cover"
-                />
-              ))}
-              <div className="w-10 h-10 rounded-full border-2 border-white dark:border-slate-800 bg-primary flex items-center justify-center text-[10px] font-bold text-white">
-                +2k
-              </div>
-            </div>
-            <p className="text-sm text-slate-500 dark:text-slate-500 font-medium">
-              Joined the waitlist this week
-            </p>
-          </div>
+          
         </div>
 
         {/* Right column — product demo video */}

@@ -26,7 +26,7 @@ export default function JoinBannerSection() {
             the next generation of seekers.
           </p>
           <div className="flex justify-center pt-2">
-            <WaitlistButton variant="nav" className="px-8 py-4 bg-slate-900 text-white text-base font-bold rounded-2xl hover:scale-105 transition-all shadow-xl">
+            <WaitlistButton variant="nav" className="group relative px-7 py-3.5 bg-white text-slate-900 text-base font-semibold rounded-xl shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/25 hover:-translate-y-px active:translate-y-0 transition-all duration-200 flex items-center gap-2.5 overflow-hidden">
               Get Early Access
             </WaitlistButton>
           </div>

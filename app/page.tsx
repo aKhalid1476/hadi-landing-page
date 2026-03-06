@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar'
 import HeroSection from '@/components/HeroSection'
 import CredibilitySection from '@/components/CredibilitySection'
 import MissionSection from '@/components/MissionSection'
+import KeyFeaturesSection from '@/components/KeyFeaturesSection'
 import CoreValuesSection from '@/components/CoreValuesSection'
 import JoinBannerSection from '@/components/JoinBannerSection'
 import TeamSection from '@/components/TeamSection'
@@ -14,6 +15,7 @@ export default function Home() {
         <HeroSection />
         <CredibilitySection />
         <MissionSection />
+        <KeyFeaturesSection />
         <CoreValuesSection />
         <JoinBannerSection />
         <TeamSection />

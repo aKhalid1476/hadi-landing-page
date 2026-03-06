@@ -17,9 +17,13 @@ export default function WaitlistButton({ variant = 'primary', className, childre
       <>
         <button
           onClick={() => setOpen(true)}
-          className={className ?? 'px-6 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-bold rounded-full hover:scale-105 transition-all shadow-xl shadow-slate-200 dark:shadow-none'}
+          className={className ?? 'group relative px-5 py-2 text-sm font-semibold rounded-lg overflow-hidden transition-all duration-200 bg-emerald-500 text-white shadow-sm shadow-emerald-500/30 hover:bg-emerald-600 hover:shadow-md hover:shadow-emerald-500/40 active:scale-[0.98]'}
         >
-          {children ?? 'Join Waitlist'}
+          <span className="absolute inset-0 bg-gradient-to-b from-white/15 to-transparent pointer-events-none" />
+          <span className="relative flex items-center gap-1.5">
+            {children ?? 'Get Early Access'}
+            <span className="material-icons-round text-sm transition-transform duration-200 group-hover:translate-x-0.5">east</span>
+          </span>
         </button>
         <WaitlistModal isOpen={open} onClose={() => setOpen(false)} />
       </>
@@ -28,17 +32,17 @@ export default function WaitlistButton({ variant = 'primary', className, childre
 
   return (
     <>
-      <div className="relative group w-fit">
-        <div className="absolute -inset-1 bg-primary blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200" />
-        <button
-          onClick={() => setOpen(true)}
-          className="relative px-8 py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-lg font-bold rounded-2xl flex items-center gap-3 transition-transform active:scale-95"
-        >
-          {children ?? 'Join Waitlist!'}
-          <span className="material-icons-round">east</span>
-        </button>
-        <div className="absolute bottom-0 left-4 right-4 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-green-400 rounded-full" />
-      </div>
+      <button
+        onClick={() => setOpen(true)}
+        className="group relative px-7 py-3.5 bg-gradient-to-b from-emerald-500 to-emerald-600 text-white text-base font-semibold rounded-xl shadow-lg shadow-emerald-500/30 hover:shadow-xl hover:shadow-emerald-500/40 hover:-translate-y-px active:translate-y-0 active:shadow-md transition-all duration-200 flex items-center gap-2.5 overflow-hidden"
+      >
+        {/* Inner shine */}
+        <span className="absolute inset-0 bg-gradient-to-b from-white/15 to-transparent pointer-events-none" />
+        {/* Bottom edge highlight */}
+        <span className="absolute inset-x-0 bottom-0 h-px bg-black/20 pointer-events-none" />
+        <span className="relative">{children ?? 'Join the Waitlist'}</span>
+        <span className="relative material-icons-round text-[18px] transition-transform duration-200 group-hover:translate-x-0.5">east</span>
+      </button>
       <WaitlistModal isOpen={open} onClose={() => setOpen(false)} />
     </>
   )

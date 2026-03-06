@@ -19,7 +19,7 @@ export default function Navbar() {
             Our Mission
           </a>
           <a
-            href="#"
+            href="#features"
             className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
           >
             Key Features

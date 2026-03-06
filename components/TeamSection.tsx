@@ -4,18 +4,16 @@ const TEAM = [
   {
     name: 'Shayan Syed',
     role: 'CS @ Ontario Tech',
-    focus: 'Product & UX',
-    bio: 'Shayan is deeply passionate about bridging the gap between modern technology and Islamic education. He focuses on creating intuitive user experiences that make complex learning accessible to everyone.',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuBw79jPcFSCTi5tTb5ADU-nmomJ9A0Fx7ETbI60nGmPT8KoNwy5KRMIQQDCMn7dShhOsmhPJeTNqRb_tuZUPO8PSAiDss9wuWb2nsF8_CjYqgVLQ3kFSkCqmQwe05t8f4_RjaUKtpwk2HpY706NiJuZVvitrUT5lZr7hO-JZo7Ke-vgWDKRMkML0H0MvJe6tzfXR3Qg6B6x6nW44vovhYTCCYHquIhNa894KrCBsr99paIaAIKoTZfvsTleYsuSDRjR3gjY9Aa_fR75',
+    focus: 'Techical Co-Founder - MLE',
+    bio: 'There are several instances where I have worked with NLP-driven generation and used LLMs to automate different processes, along with extensive experience building Python backends through Waterloo Design Teams and a previous ML internship. As for Shayan, he brings hands-on experience building and testing data and AI-driven systems, with industry exposure to AI automation, entrepreneurial experience running a social media marketing agency, and ongoing studies in an Alimiyyah program that informs a grounded, user-focused approach. More importantly, both of us are committed to making a positive change in the Ummah, with the intention to please Allah and benefit students of knowledge seeking to spend their time gaining understanding of the Deen.',
+    image: '/shayanHeadshot.PNG',
   },
   {
     name: 'Abdullah Khalid',
     role: 'SE @ UWaterloo',
-    focus: 'Engineering & AI',
-    bio: 'With extensive expertise in software engineering, Abdullah leads the development of our secure AI pipelines. He ensures that our RAG-based systems maintain the highest standards of technical excellence and data integrity.',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuDi7q5_dWo_q2e28TOUBKmmkxaKZD1Z_vuNMNyGqg4KeRCXXqi1PVftxvr29rOuu9mrOuNf8of_-08TGgz47KdQZf1LjS2r7xX4LNprgjVUIuP9s8IvLJsFff4fLXK229odL-4HMPvJwB7TVpsqQOFOcF3m692mBXOYIROmocwqPwzXQUGfqp3S_JDw-QlxRzNDQA-b9896XJtbHk3BeiKQAJQ-FNSlES0RYnxW1_y58-kBxyyblLzd8Icxu2u7Ix1DJVmUPbvrC7_L',
+    focus: 'Technical Co-Founder - AI Engineer',
+    bio: 'This project has brought my benefits to my life. Most importantly, building an application for the benefit of Muslims undoubtedly brings barakah. Allah has made us responsible for being positive contributors to the Ummah. Through training RAG pipelines and developing the end-to-end appication, I strive towards building a beneficial applciation for Muslims. ',
+    image: '/abdullahHeadshot.png',
   },
 ]
 
@@ -69,7 +67,7 @@ export default function TeamSection() {
                       alt={member.name}
                       width={96}
                       height={96}
-                      className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover"
+                      className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover object-top"
                     />
                   </div>
 
