@@ -4,15 +4,15 @@ const TEAM = [
   {
     name: 'Shayan Syed',
     role: 'CS @ Ontario Tech',
-    focus: 'Techical Co-Founder - MLE',
-    bio: 'There are several instances where I have worked with NLP-driven generation and used LLMs to automate different processes, along with extensive experience building Python backends through Waterloo Design Teams and a previous ML internship. As for Shayan, he brings hands-on experience building and testing data and AI-driven systems, with industry exposure to AI automation, entrepreneurial experience running a social media marketing agency, and ongoing studies in an Alimiyyah program that informs a grounded, user-focused approach. More importantly, both of us are committed to making a positive change in the Ummah, with the intention to please Allah and benefit students of knowledge seeking to spend their time gaining understanding of the Deen.',
+    focus: 'Techical Co-Founder - Machine Learning Engineer',
+    bio: 'As a student in the Alimiyyah program at the Islamic Centre of Oshawa and a Computer Science student at Ontario Tech University, I am deeply connected to the journey of seeking Islamic knowledge for the sake of Allah. I believe that pursuing knowledge is a fundamental and essential part of a student’s growth, and this project is inspired by the desire to help students learn more effectively and confidently. My vision is to contribute to a future where authentic Islamic knowledge is not only accessible, but thoughtfully presented, aiding students and communities to engage with it meaningfully and grow in understanding.',
     image: '/shayanHeadshot.PNG',
   },
   {
     name: 'Abdullah Khalid',
     role: 'SE @ UWaterloo',
     focus: 'Technical Co-Founder - AI Engineer',
-    bio: 'This project has brought my benefits to my life. Most importantly, building an application for the benefit of Muslims undoubtedly brings barakah. Allah has made us responsible for being positive contributors to the Ummah. Through training RAG pipelines and developing the end-to-end appication, I strive towards building a beneficial applciation for Muslims. ',
+    bio: 'This project has brought many benefits to my life. Most importantly, building an application for the benefit of Muslims undoubtedly brings barakah. Allah has made us responsible for being positive contributors to the Ummah. Through training RAG pipelines and developing the end-to-end appication, I strive towards building a beneficial applciation for Muslims. Both Shayan and I are firm upon making sure that all of our features are in accordance to the Sunnah, and we are never going to build anything that goes against it.',
     image: '/abdullahHeadshot.png',
   },
 ]
