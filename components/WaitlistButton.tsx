@@ -28,7 +28,7 @@ export default function WaitlistButton({ variant = 'primary', className, childre
 
   return (
     <>
-      <div className="relative group">
+      <div className="relative group w-fit">
         <div className="absolute -inset-1 bg-primary blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200" />
         <button
           onClick={() => setOpen(true)}

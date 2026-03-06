@@ -1,8 +1,10 @@
 import Navbar from '@/components/Navbar'
 import HeroSection from '@/components/HeroSection'
 import CredibilitySection from '@/components/CredibilitySection'
+import MissionSection from '@/components/MissionSection'
+import CoreValuesSection from '@/components/CoreValuesSection'
+import JoinBannerSection from '@/components/JoinBannerSection'
 import TeamSection from '@/components/TeamSection'
-import WaitlistButton from '@/components/WaitlistButton'
 
 export default function Home() {
   return (
@@ -11,6 +13,9 @@ export default function Home() {
       <main>
         <HeroSection />
         <CredibilitySection />
+        <MissionSection />
+        <CoreValuesSection />
+        <JoinBannerSection />
         <TeamSection />
       </main>
 

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 
 interface WaitlistModalProps {
@@ -11,6 +12,7 @@ interface WaitlistModalProps {
 type FormState = 'idle' | 'submitting' | 'success' | 'duplicate' | 'error'
 
 export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [formState, setFormState] = useState<FormState>('idle')
   const [errorMessage, setErrorMessage] = useState('')
@@ -18,10 +20,11 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
 
   useEffect(() => {
     if (isOpen) {
-      setTimeout(() => inputRef.current?.focus(), 100)
+      setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 100)
       document.body.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = ''
+      setName('')
       setEmail('')
       setFormState('idle')
       setErrorMessage('')
@@ -47,7 +50,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
       const res = await fetch('/api/waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, name }),
       })
       const data = await res.json()
 
@@ -65,7 +68,9 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
     }
   }
 
-  return (
+  if (typeof document === 'undefined') return null
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
         <div
@@ -82,7 +87,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
             onClick={onClose}
           />
           <motion.div
-            className="relative bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800 p-8 w-full max-w-md"
+            className="relative bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800 p-8 w-full max-w-md max-h-[90vh] overflow-y-auto"
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -97,14 +102,14 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
             </button>
 
             <div className="mb-6">
-              <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
-                <span className="material-icons-round text-primary text-2xl">auto_awesome</span>
+              <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-5">
+                <span className="material-icons-round text-primary text-2xl">mail</span>
               </div>
-              <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white mb-1">
+              <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white mb-2">
                 Join the Waitlist
               </h2>
-              <p className="text-sm text-slate-500 dark:text-slate-400">
-                Be among the first to access Hadi when we launch.
+              <p className="text-slate-500 dark:text-slate-400 leading-relaxed">
+                Be the first to know when we launch and get exclusive early access. No spam, just progress.
               </p>
             </div>
 
@@ -143,18 +148,33 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
-                    Email address
+                  <label htmlFor="name" className="block text-sm font-bold text-slate-800 dark:text-slate-200 mb-2">
+                    Name
                   </label>
                   <input
                     ref={inputRef}
+                    id="name"
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="John Doe"
+                    required
+                    className="w-full px-4 py-3.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-bold text-slate-800 dark:text-slate-200 mb-2">
+                    Email Address
+                  </label>
+                  <input
                     id="email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="you@example.com"
+                    placeholder="john@example.com"
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-sm"
+                    className="w-full px-4 py-3.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors"
                   />
                 </div>
 
@@ -165,7 +185,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                 <button
                   type="submit"
                   disabled={formState === 'submitting'}
-                  className="w-full px-6 py-3.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-bold rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-60 disabled:scale-100 flex items-center justify-center gap-2"
+                  className="w-full px-6 py-4 bg-primary text-white text-base font-bold rounded-2xl hover:bg-primary/90 active:scale-[0.98] transition-all disabled:opacity-60 disabled:scale-100 flex items-center justify-center gap-2 mt-2"
                 >
                   {formState === 'submitting' ? (
                     <>
@@ -174,16 +194,24 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                     </>
                   ) : (
                     <>
-                      Join Waitlist
+                      Join Now
                       <span className="material-icons-round text-base">east</span>
                     </>
                   )}
                 </button>
+
+                <p className="text-center text-xs text-slate-400 dark:text-slate-500 pt-1">
+                  By joining, you agree to our{' '}
+                  <span className="underline cursor-pointer hover:text-slate-600 dark:hover:text-slate-300 transition-colors">Privacy Policy</span>
+                  {' '}and{' '}
+                  <span className="underline cursor-pointer hover:text-slate-600 dark:hover:text-slate-300 transition-colors">Terms of Service</span>.
+                </p>
               </form>
             )}
           </motion.div>
         </div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   )
 }
