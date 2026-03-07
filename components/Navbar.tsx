@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import WaitlistButton from './WaitlistButton'
 
 export default function Navbar() {
@@ -5,9 +6,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <div className="flex items-center gap-3 group cursor-pointer">
-          <div className="w-10 h-10 bg-primary flex items-center justify-center rounded-xl shadow-lg shadow-primary/20">
-            <span className="material-icons-round text-white text-2xl">auto_awesome</span>
-          </div>
+          <Image src="/hadiLogo.png" alt="Hadi Logo" width={100} height={100} className="rounded-xl" />
           <span className="text-3xl font-bold font-arabic leading-none mt-1">هادي</span>
         </div>
 

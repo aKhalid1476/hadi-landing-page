@@ -22,6 +22,9 @@ const amiri = Amiri({
 })
 
 export const metadata: Metadata = {
+  icons: {
+    icon: '/hadiLogo.png',
+  },
   title: 'Hadi - Islamic Study Tools Reimagined',
   description:
     'Hadi grounds ML/AI pipelines with RAG and hours of training data to ensure students of knowledge continue to learn authentic knowledge from verified sources.',
